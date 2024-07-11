@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <stdio.h>
+
+void add() {
+    double a, b;
+    printf("Enter two numbers to add: ");
+    scanf("%lf %lf", &a, &b);
+    printf("Result: %lf\n", a + b);
+}
+
+void subtract() {
+    double a, b;
+    printf("Enter two numbers to subtract (a - b): ");
+    scanf("%lf %lf", &a, &b);
+    printf("Result: %lf\n", a - b);
+}
+
+void multiply() {
+    double a, b;
+    printf("Enter two numbers to multiply: ");
+    scanf("%lf %lf", &a, &b);
+    printf("Result: %lf\n", a * b);
+}
+
+void divide() {
+    double a, b;
+    printf("Enter two numbers to divide (a / b): ");
+    scanf("%lf %lf", &a, &b);
+    if (b != 0) {
+        printf("Result: %lf\n", a / b);
+    } else {
+        printf("Error: Division by zero is not allowed.\n");
+    }
+}
+
+void mod(){
+    int a,b,c;
+    printf("Enter a number: \n");
+    scanf("%d", &a);
+    printf("Enter the modulus: \n");
+    scanf("%d", &b);
+    c = a%b;
+    printf("Result: %d \n", c);
+}
+
+int main() {
+    char op;
+    while (1) {
+        printf("Select an operation (+, -, *, /, m(modulo)) or 'q' to quit: ");
+        scanf(" %c", &op); // Notice the space before %c to consume any newline character left in the input buffer
+
+        switch (op) {
+            case 'm':
+                mod();
+                break;
+            case '+':
+                add();
+                break;
+            case '-':
+                subtract();
+                break;
+            case '*':
+                multiply();
+                break;
+            case '/':
+                divide();
+                break;
+            case 'q':
+                return 0;
+            default:
+                printf("Invalid operation.\n");
+                break;
+
+        }
+    }
+}
